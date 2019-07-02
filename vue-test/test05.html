@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>v-on:修饰符</title>
+		<script src="js/vue.js"></script>  <!-- 注意：此处的引用写法，必须这样写-->
+	</head>
+	<body>
+		<div id="app">
+			<form action="https://www.sxt.cn/" method="post" @submit.preven>
+				<input type="submit" value="提交"/>
+			</form>
+			<hr />
+			<form action="https://www.sxt.cn/" method="post" onsubmit="return checkForm()">
+				<input type="submit" value="提交"/>
+			</form>
+		</div>
+	</body>
+	<script>
+		/* 传统方式 */
+		function checkForm() {
+			//表单验证必须有一个明确的boolean类型返回值
+			//在引用方法时必须加return
+			return false;
+		}
+		/* vue方式 */
+		new Vue({
+			el:"#app"
+		})
+	</script>
+</html>
